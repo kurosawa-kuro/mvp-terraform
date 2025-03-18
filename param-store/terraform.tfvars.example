@@ -1,0 +1,29 @@
+aws_region = "ap-northeast-1"
+
+parameters = {
+  "/app/production/database/username" = {
+    value       = "db_user"
+    description = "データベースのユーザー名"
+    type        = "String"
+  },
+  "/app/production/database/password" = {
+    value       = "db_password"
+    description = "データベースのパスワード"
+    type        = "SecureString"
+  },
+  "/app/production/api/endpoint" = {
+    value       = "https://api.example.com"
+    description = "API エンドポイント"
+    type        = "String"
+    tags        = {
+      Environment = "production"
+      Service     = "api"
+    }
+  }
+}
+
+tags = {
+  Project     = "MVPApplication"
+  Environment = "production"
+  ManagedBy   = "Terraform"
+} 
